@@ -10,4 +10,17 @@ module.exports = function(app) {
         res.json(err);
         });
     })
+
+    app.put("/api/workouts/:id?", (req, res) => {
+        console.log(req.body)
+        //var input = JSON.parse(req.body.exercize);
+        //console.log(input)
+        db.Workout.findOneAndUpdate({_id: req.params.id}, {$push: {exercises: req.body.exercize}}, {new: true})
+        .then(dbNote => {
+         res.json(dbNote);
+        })
+        .catch(err => {
+        res.json(err);
+        });
+    })
 }
