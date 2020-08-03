@@ -9,7 +9,7 @@ const workoutSchema = new Schema({
     },
     exercises: {
         type: Array,
-        "default": []
+        default: []
     }
 
 })
